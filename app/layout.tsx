@@ -1,25 +1,31 @@
 import "./global.css";
 import type { Metadata } from "next";
-import { GeistSans } from "geist/font/sans";
-import { GeistMono } from "geist/font/mono";
+import { Manrope } from "next/font/google";
 import { Navbar } from "./components/nav";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Footer from "./components/footer";
 import { baseUrl } from "./sitemap";
 
+const manrope = Manrope({
+  subsets: ["latin"],
+  weight: "400",
+});
+
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: "Next.js Portfolio Starter",
-    template: "%s | Next.js Portfolio Starter",
+    default: "Let's build apps that matter | Iona Innovation Labs",
+    template: "%s | Iona Innovation Labs",
   },
-  description: "This is my portfolio.",
+  description:
+    "We’re a team of design and development experts who can help you transform and scale your business to the next level.",
   openGraph: {
-    title: "My Portfolio",
-    description: "This is my portfolio.",
+    title: "Iona Innovation Labs",
+    description:
+      "We’re a team of design and development experts who can help you transform and scale your business to the next level..",
     url: baseUrl,
-    siteName: "My Portfolio",
+    siteName: "Iona Innovation Labs",
     locale: "en_US",
     type: "website",
   },
@@ -47,9 +53,8 @@ export default function RootLayout({
     <html
       lang="en"
       className={cx(
-        "text-black bg-white dark:text-white dark:bg-black",
-        GeistSans.variable,
-        GeistMono.variable
+        "text-black bg-zinc-300 dark:text-white dark:bg-zinc-800",
+        manrope.className
       )}
     >
       <body className="antialiased max-w-xl mx-4 mt-8 lg:mx-auto">
